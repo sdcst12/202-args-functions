@@ -1,36 +1,40 @@
-# 100 review of functions
+# 202 The *args parameter
 
 ## Objectives
-* to review and remember
-  1. when to use functions
+* understanding *args to create functions with list input
 
+In the past, we have seen that a function can be created that accepts input parameters as *positional arguments*.  For example, consider the code below:
 
-Functions are really intended to be small blocks of code.  One very overlooked value of functions is to make small decisions and return True or False values to help make your conditional statements much easier to read.
+```
+def functionName(num1,num2):
+  pass
+  # more code goes here
+```
 
-We can use complex conditional statements using multiple *and* and *or* connectors, but we could also make them available in a function that returns a boolean value.
+You can see here that the function takes in 2 positional arguments as input parameters, but this function can only accept 2 parameters.  This is great if the input is keeping track of things like the length and width of a rectangle, but what if these are supposed to be scores for a student on a test, or shoe sizes for a classroom?  We would want to be able to keep entering data until we are out of things to enter.
 
-Consider the sample1.py program.
+### *args positional argument
 
-At other times, we might want to create a function that returns multiple return values!  Maybe you need an x-y coordinate, or even an x-y-z coordinate!
+One of the ways that we can submit data to a function is to provide it with a list:
 
-Open up sample2.py and see how it looks!
+```
+def functionList(myList):
+  pass
+  for i in myList:
+    print(i)
 
-Assignment 1:
-Create a function that takes 2 parameters that are integers.  The function will return both the greatest common factor as well as the lowest common multiple.  You will likely need some other functions to help you accomplish this task.
-Some ideas (you don't have to use them):
-* a function that takes 1 parameter that is an integer.  The function will return a list of the factors for that number
-* a function that takes 2 lists and determines the largest number that is common to both sets
+data = [3,4,5,6,7]
+functionList(data)
+```
 
-Some sample code is provided.
+You can see from this example that we can send a variable amount of data to the function if we send it as a list, and then wen can do something with that list in the function itself.  However, **we can also use a variable number of input parameters using the *args parameter**.
 
-Assignment 2:
-Find the distance between 2 points in 3d space using (x,y,z) cartesian coordinates as well as the coordinates of the midpoint.  This like the 2d x-y grid system, except there is a 3rd value, z which indicates coming out of the page.
+```
+def functionList(*myList):
+  pass
+  for i in myList:
+    print(i)
 
-To find the distance between 2 coordinates, we can use the distance formula:
-d = sqrt( (x1-x2)^2 + (y1-y2)^2 )
+data = [3,4,5,6,7]
+functionList(3,4,5,6,7)
 
-To find the midpoint, of 2 coordinates in a 2d space, we find their average values:
-
-(xm,ym) = (x1+x2)/2 , (y1+y2)/2
-
-Write a function to determine the midpoint between 2 coordinates in 3d (x,y,z) space
