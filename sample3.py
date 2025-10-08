@@ -1,4 +1,4 @@
-def functionList(a,b,*c):
+def functionList(*a,b,c):
   print(a)
   print(b)
   print(c)

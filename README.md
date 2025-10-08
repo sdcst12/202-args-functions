@@ -35,6 +35,41 @@ def functionList(*myList):
   for i in myList:
     print(i)
 
-data = [3,4,5,6,7]
+print("parameters one at a time")
 functionList(3,4,5,6,7)
+
+print("parameters as a list")
+data = [1,2,3,4,5]
+functionList(data)
+```
+
+Note that you can also send specific positional arguments, and the rest as args:
+
+```
+def functionList(a,b,*c):
+  print(a)
+  print(b)
+  print(c)
+
+functionList(3,4,5,6,7,8)
+```
+
+If you hadn't already guessed, the * indicates that there are going to be a variable number of positional arguments.  
+Note that the *args positional argument must go at the end, otherwise we receive an error (check out sample3.py to see this in action).
+
+You will note that in most code, people just use the positional argument *args, but it can be any name that you want.
+
+```
+def functionList(*args):
+  print(args)
+
+functionList(3,4,5)
+```
+
+## Why use args?
+
+It looks just like a list, so why would we use args?
+* maybe you don't know in advance how many arguments you will need to pass
+* mostly for flexibility in writing functions
+* it is a stepping stone to understanding **kwargs which has much greater application
 
